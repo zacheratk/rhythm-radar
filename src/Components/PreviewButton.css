@@ -1,0 +1,12 @@
+.center-contents {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}

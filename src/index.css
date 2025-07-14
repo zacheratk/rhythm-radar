@@ -1,0 +1,67 @@
+/* Main font for Webpage */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  font-family: "Manrope", Helvetica, sans-serif;
+  /* Color palette */
+  --background: #1b1c1e;
+  --font-color: #f5f5f5;
+  --accent: #c084fc;
+  --glass-border: #ffffff33;
+  --glass-background: #ffffff14;
+}
+
+/* Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+}
+
+/* Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* Add accessible line-height */
+  line-height: 1.5;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6, li {
+  overflow-wrap: break-word;
+  /* Set text colors */
+  color: var(--font-color);
+}
+
+/* Improve line wrapping */
+p, li {
+  text-wrap: pretty;
+  font-size: 1rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Create a root stacking context */
+#root, #__next {
+  isolation: isolate;
+}

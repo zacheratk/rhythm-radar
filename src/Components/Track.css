@@ -1,0 +1,41 @@
+.card {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.main-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.center {
+  flex: 1;
+}
+
+.right {
+  text-align: right;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+.popular-bar {
+  padding: 0;
+  border-radius: 8px;
+  height: 1.2rem;
+}
+
+.inner-bar {
+  background-color: var(--accent);
+  height: 100%;
+  border-radius: 8px;
+}
