@@ -1,7 +1,18 @@
-import './App.css'
+import './App.css';
+import { useEffect, useState } from 'react';
 import Dashboard from './Components/Dashboard';
+import LoginPrompt from './Components/LoginPrompt';
 
 const App = () => {
+  const [accessToken, setAccessToken] = useState(null);
+
+  useEffect(() => {
+    // If the user previously logged in, the token should be in sessionStorage
+    const token = sessionStorage.getItem('accessToken');
+    if (token) {
+      setAccessToken(token);
+    }
+  }, [])
 
   return (
   <>
@@ -16,8 +27,11 @@ const App = () => {
       <header>
         <h1><span className='accent'>Rhythm</span> <span>Radar</span></h1>
       </header>
-      {/* TODO: Dashboard swapped out with about component when about page is clicked in nav bar */}
-      <Dashboard />
+      {accessToken ? (
+        <Dashboard accessToken={accessToken}/>
+      ) : (
+        <LoginPrompt setAccessToken={setAccessToken} />
+      )}
     </div>
   </>
   )
