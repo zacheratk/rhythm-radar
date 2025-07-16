@@ -21,7 +21,7 @@ const Track = ({ albumArt, trackName, artists, releaseDate, popularity, genres, 
         </div>
       </div>
       <div className="popular-bar glass-panel">
-        <div className='inner-bar' style={{ width: `${popularity*100}%`}} />
+        <div className='inner-bar' style={{ width: `${popularity}%`}} />
       </div>
     </div>
     <PreviewButton preview={preview} />
