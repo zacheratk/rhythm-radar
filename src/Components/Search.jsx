@@ -1,9 +1,13 @@
 import "./Search.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Search = ({ tracks, genres, setFilteredTracks }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [genreFilter, setGenreFilter] = useState("all");
+
+  useEffect(() => {
+    handleSearch();
+  }, [searchQuery, genreFilter])
 
   const handleSearch = () => {
     let filteredTracks = tracks;
@@ -29,7 +33,7 @@ const Search = ({ tracks, genres, setFilteredTracks }) => {
   };
 
   const handleInputChange = (e) => {
-    setSearchQuery(e.target.value);
+    setSearchQuery(e.target.value.trim());
   };
 
   const handleDropdownChange = (e) => {
@@ -58,9 +62,9 @@ const Search = ({ tracks, genres, setFilteredTracks }) => {
             </option>
           ))}
       </select>
-      <button type="submit" className="glass-button" onClick={handleSearch}>
+      {/* <button type="submit" className="glass-button" onClick={handleSearch}>
         Search Tracks
-      </button>
+      </button> */}
     </div>
   );
 };
