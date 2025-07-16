@@ -99,38 +99,74 @@ const Dashboard = ({ accessToken }) => {
     }
   };
 
+  const getMostFrequentGenre = (arr) => {
+    let m = new Map();
+    let maxCount = 0;
+    let res = null;
+
+    for (let num of arr) {
+      let count = (m.get(num) || 0) + 1;
+      m.set(num, count);
+
+      if (count > maxCount) {
+        maxCount = count;
+        res = num;
+      }
+    }
+
+    return res;
+  };
+
   return (
     <main>
       <section className="container">
         <div className="glass-panel">
           <h1>
-            Showing <span className="accent">{50}</span> Tracks
+            Showing{" "}
+            <span className="accent">
+              {
+                filteredTracks.length /* Total number of tracks being displayed */
+              }
+            </span>{" "}
+            Tracks
           </h1>
         </div>
         <div className="glass-panel">
           <h1>
             Average Popularity
             <br />
-            <span className="accent">{"70/100"}</span>
+            <span className="accent">
+              {
+                /* Average popularity of displayed tracks */
+                filteredTracks.reduce(
+                  (sum, track) => sum + track.popularity,
+                  0
+                ) / filteredTracks.length
+              }
+            </span>
           </h1>
         </div>
         <div className="glass-panel">
           <h1>
             Most Popular Genre
             <br />
-            <span className="accent">{"Genre"}</span>
+            <span className="accent">
+              {getMostFrequentGenre(
+                filteredTracks.flatMap((track) => track.genres)
+              )}
+            </span>
           </h1>
         </div>
       </section>
 
       <article className="glass-panel">
-      <div>
-        <Search
-          tracks={tracks}
-          genres={availableGenres}
-          setFilteredTracks={setFilteredTracks}
-        />
-        {filteredTracks &&
+        <div>
+          <Search
+            tracks={tracks}
+            genres={availableGenres}
+            setFilteredTracks={setFilteredTracks}
+          />
+          {filteredTracks &&
             filteredTracks.map((track) => (
               <Track
                 key={track.id}
@@ -145,7 +181,6 @@ const Dashboard = ({ accessToken }) => {
               />
             ))}
         </div>
-
       </article>
     </main>
   );
