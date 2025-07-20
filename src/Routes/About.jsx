@@ -2,7 +2,7 @@ import "./About.css";
 
 const About = () => {
   return (
-    <article className="glass-panel">
+    <article className="glass-panel about">
       <p>
         Welcome to Rhythm Radar! View the top trending tracks, and find new
         ones!
