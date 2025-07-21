@@ -9,7 +9,6 @@ const Track = ({
   popularity,
   genres,
   duration,
-  link,
 }) => {
   return (
     <>
@@ -39,7 +38,6 @@ const Track = ({
             <div className="inner-bar" style={{ width: `${popularity}%` }} />
           </div>
         </div>
-        <PreviewButton link={link} />
       </div>
     </>
   );

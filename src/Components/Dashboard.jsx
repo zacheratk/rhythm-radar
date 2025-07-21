@@ -1,5 +1,6 @@
 import "./Dashboard.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Track from "./Track";
 import Search from "./Search";
 
@@ -168,17 +169,18 @@ const Dashboard = ({ accessToken }) => {
           />
           {filteredTracks &&
             filteredTracks.map((track) => (
-              <Track
-                key={track.id}
-                albumArt={track.albumArt}
-                trackName={track.name}
-                artists={track.artists}
-                releaseDate={track.date}
-                popularity={track.popularity}
-                genres={track.genres}
-                duration={track.duration}
-                link={track.link}
-              />
+              <Link key={track.id} to={`/track/${track.id}`}>
+                <Track
+                  key={track.id}
+                  albumArt={track.albumArt}
+                  trackName={track.name}
+                  artists={track.artists}
+                  releaseDate={track.date}
+                  popularity={track.popularity}
+                  genres={track.genres}
+                  duration={track.duration}
+                />
+              </Link>
             ))}
         </div>
       </article>
