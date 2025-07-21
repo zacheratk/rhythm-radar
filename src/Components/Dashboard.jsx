@@ -66,7 +66,7 @@ const Dashboard = ({ accessToken }) => {
       }
 
       const trackArray = [];
-
+      console.log(trackItems);
       // Combine relevant information into single array for state variable
       trackItems.forEach((track) => {
         trackArray.push({

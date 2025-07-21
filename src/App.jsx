@@ -4,6 +4,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Dashboard from "./Components/Dashboard";
 import LoginPrompt from "./Components/LoginPrompt";
 import About from "./Routes/About";
+import NotFound from "./Routes/NotFound";
 
 const App = () => {
   const [accessToken, setAccessToken] = useState(null);
@@ -47,6 +48,7 @@ const App = () => {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>
