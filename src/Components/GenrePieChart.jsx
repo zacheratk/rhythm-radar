@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
-const BarChart = ({ genres }) => {
+const GenrePieChart = ({ genres }) => {
   const [topFiveGenres, setTopFiveGenres] = useState([]);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ const BarChart = ({ genres }) => {
   );
 };
 
-export default BarChart;
+export default GenrePieChart;
