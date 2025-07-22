@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Track from "./Track";
 import Search from "./Search";
+import BarChart from "./BarChart";
 
 const Dashboard = ({ accessToken }) => {
   const [filteredTracks, setFilteredTracks] = useState([]);
@@ -187,6 +188,9 @@ const Dashboard = ({ accessToken }) => {
         <div className="charts">
           <section className="glass-panel">
             <h3>Genre Pie Chart</h3>
+            <BarChart
+              genres={filteredTracks.flatMap((track) => track.genres)}
+            />
           </section>
           <section className="glass-panel">
             <h3>Most Common Artists Bar Chart</h3>
