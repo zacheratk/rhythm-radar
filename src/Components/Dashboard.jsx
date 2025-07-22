@@ -1,7 +1,10 @@
 import "./Dashboard.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Track from "./Track";
 import Search from "./Search";
+import GenrePieChart from "./GenrePieChart";
+import ArtistBarChart from "./ArtistBarChart";
 
 const Dashboard = ({ accessToken }) => {
   const [filteredTracks, setFilteredTracks] = useState([]);
@@ -66,7 +69,7 @@ const Dashboard = ({ accessToken }) => {
       }
 
       const trackArray = [];
-
+      console.log(trackItems);
       // Combine relevant information into single array for state variable
       trackItems.forEach((track) => {
         trackArray.push({
@@ -158,30 +161,45 @@ const Dashboard = ({ accessToken }) => {
           </h1>
         </div>
       </section>
-
-      <article className="glass-panel">
-        <div>
-          <Search
-            tracks={tracks}
-            genres={availableGenres}
-            setFilteredTracks={setFilteredTracks}
-          />
-          {filteredTracks &&
-            filteredTracks.map((track) => (
-              <Track
-                key={track.id}
-                albumArt={track.albumArt}
-                trackName={track.name}
-                artists={track.artists}
-                releaseDate={track.date}
-                popularity={track.popularity}
-                genres={track.genres}
-                duration={track.duration}
-                link={track.link}
-              />
-            ))}
+      <div className="main-container">
+        <article className="glass-panel">
+          <div>
+            <Search
+              tracks={tracks}
+              genres={availableGenres}
+              setFilteredTracks={setFilteredTracks}
+            />
+            {filteredTracks &&
+              filteredTracks.map((track) => (
+                <Link key={track.id} to={`/track/${track.id}`}>
+                  <Track
+                    key={track.id}
+                    albumArt={track.albumArt}
+                    trackName={track.name}
+                    artists={track.artists}
+                    releaseDate={track.date}
+                    popularity={track.popularity}
+                    genres={track.genres}
+                    duration={track.duration}
+                  />
+                </Link>
+              ))}
+          </div>
+        </article>
+        <div className="charts">
+          <section className="glass-panel">
+            <h3>Genre Pie Chart</h3>
+            <GenrePieChart
+              genres={filteredTracks.flatMap((track) => track.genres)}
+            />
+          </section>
+          <section className="glass-panel">
+            <h3>Most Common Artists Bar Chart</h3>
+            <ArtistBarChart
+              artists={filteredTracks.flatMap((track) => track.artists)} />
+          </section>
         </div>
-      </article>
+      </div>
     </main>
   );
 };
