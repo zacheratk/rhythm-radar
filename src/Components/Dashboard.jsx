@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Track from "./Track";
 import Search from "./Search";
 import GenrePieChart from "./GenrePieChart";
+import ArtistBarChart from "./ArtistBarChart";
 
 const Dashboard = ({ accessToken }) => {
   const [filteredTracks, setFilteredTracks] = useState([]);
@@ -194,6 +195,8 @@ const Dashboard = ({ accessToken }) => {
           </section>
           <section className="glass-panel">
             <h3>Most Common Artists Bar Chart</h3>
+            <ArtistBarChart
+              artists={filteredTracks.flatMap((track) => track.artists)} />
           </section>
         </div>
       </div>
