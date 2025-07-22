@@ -9,4 +9,25 @@ article {
   flex: 1;
   overflow: auto;
   max-height: 650px;
+  scrollbar-color: var(--glass-border) #ffffff00;
+}
+
+.main-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.charts {
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.charts > section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

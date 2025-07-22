@@ -159,31 +159,40 @@ const Dashboard = ({ accessToken }) => {
           </h1>
         </div>
       </section>
-
-      <article className="glass-panel">
-        <div>
-          <Search
-            tracks={tracks}
-            genres={availableGenres}
-            setFilteredTracks={setFilteredTracks}
-          />
-          {filteredTracks &&
-            filteredTracks.map((track) => (
-              <Link key={track.id} to={`/track/${track.id}`}>
-                <Track
-                  key={track.id}
-                  albumArt={track.albumArt}
-                  trackName={track.name}
-                  artists={track.artists}
-                  releaseDate={track.date}
-                  popularity={track.popularity}
-                  genres={track.genres}
-                  duration={track.duration}
-                />
-              </Link>
-            ))}
+      <div className="main-container">
+        <article className="glass-panel">
+          <div>
+            <Search
+              tracks={tracks}
+              genres={availableGenres}
+              setFilteredTracks={setFilteredTracks}
+            />
+            {filteredTracks &&
+              filteredTracks.map((track) => (
+                <Link key={track.id} to={`/track/${track.id}`}>
+                  <Track
+                    key={track.id}
+                    albumArt={track.albumArt}
+                    trackName={track.name}
+                    artists={track.artists}
+                    releaseDate={track.date}
+                    popularity={track.popularity}
+                    genres={track.genres}
+                    duration={track.duration}
+                  />
+                </Link>
+              ))}
+          </div>
+        </article>
+        <div className="charts">
+          <section className="glass-panel">
+            <h3>Genre Pie Chart</h3>
+          </section>
+          <section className="glass-panel">
+            <h3>Most Common Artists Bar Chart</h3>
+          </section>
         </div>
-      </article>
+      </div>
     </main>
   );
 };
