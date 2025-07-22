@@ -1,0 +1,16 @@
+.large-img {
+  width: 250px;
+  height: 250px;
+}
+
+div.column {
+  height: 250px;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.pad-extra {
+  padding: 1rem 0;
+}

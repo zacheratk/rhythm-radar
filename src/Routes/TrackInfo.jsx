@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Track from "../Components/Track";
+import "./TrackInfo.css";
 
 const TrackInfo = ({ accessToken }) => {
   const [trackInfo, setTrackInfo] = useState({});
@@ -69,35 +70,53 @@ const TrackInfo = ({ accessToken }) => {
       artistInfo &&
       Object.keys(artistInfo).length > 0 ? (
         <>
-          <img
-            src={trackInfo.album.images[0].url}
-            alt={trackInfo.album.name}
-            className="album-art"
-          />
-          <h2>{trackInfo.name}</h2>
-          <p>from {trackInfo.album.name}</p>
-          <p>{trackInfo.explicit ? "Explicit" : ""}</p>
-          <p>Popularity</p>
-          <div className="popular-bar glass-panel">
-            <div
-              className="inner-bar"
-              style={{ width: `${trackInfo.popularity}%` }}
+          <div className="container">
+            <img
+              src={trackInfo.album.images[0].url}
+              alt={trackInfo.album.name}
+              className="album-art large-img"
             />
+            <div className="column">
+              <h2>{trackInfo.name}</h2>
+              <p>from {trackInfo.album.name}</p>
+              <p>{trackInfo.explicit ? "Explicit" : ""}</p>
+              <p>Popularity</p>
+              <div className="popular-bar glass-panel">
+                <div
+                  className="inner-bar"
+                  style={{ width: `${trackInfo.popularity}%` }}
+                />
+              </div>
+              <a
+                href={trackInfo.external_urls.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pad-extra"
+              >
+                <button className="glass-button">Open in Spotify</button>
+              </a>
+            </div>
           </div>
-          <a
-            href={trackInfo.external_urls.spotify}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="glass-button">Open in Spotify</button>
-          </a>
-          <h2>Main artist: {artistInfo.name}</h2>
-          <img
-            src={artistInfo.images[1].url}
-            alt={artistInfo.name}
-            className="album-art"
-          />
-          <p>{artistInfo.followers.total} followers</p>
+          <h2>Main artist:</h2>
+          <div className="container">
+            <img
+              src={artistInfo.images[1].url}
+              alt={artistInfo.name}
+              className="album-art large-img"
+            />
+            <div className="column">
+              <h2>{artistInfo.name}</h2>
+              <p>{artistInfo.followers.total} followers</p>
+              {artistInfo.genres?.length > 0 ? (
+                <p>Genres: {artistInfo.genres.join(", ")}</p>
+              ) : (
+                <p>Genre not known.</p>
+              )}
+            </div>
+          </div>
+          <Link to="/" className="pad-extra">
+            <button className="glass-button">Go back</button>
+          </Link>
         </>
       ) : (
         <></>
