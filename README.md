@@ -1,52 +1,48 @@
-# Web Development Project 6 - *Rhythm Radar*
+# 🎵 Rhythm Radar
 
-Submitted by: **Zachariah M. Herrera Atkins**
+**Rhythm Radar** is a web app that helps music lovers explore trending songs and discover new tracks. Powered by the Spotify Web API, the app provides a dashboard view of the **Billboard Hot 100** with detailed track insights, interactive charts, and filtering features.
 
-This web app: **View the top trending tracks, and find new ones!**
+---
 
-Time spent: **19.5** (4.5 on part 2) hours spent in total
+## 🚀 Features
 
-The following **required** functionality is completed:
+- **Trending Music Dashboard**: Browse the latest Billboard Hot 100 songs.  
+- **Track Detail Pages**: Each track has a dedicated page with additional info and a unique shareable URL.  
+- **Interactive Data Visualizations**: Dynamic charts highlight trends across genres, popularity, and artist statistics.  
+- **Secure Authentication**: OAuth PKCE flow ensures safe and secure access to Spotify’s API.  
 
-## Required Features
+---
 
-- [x] **Clicking on an item in the list view displays more details about it**
-  - Clicking on an item in the dashboard list navigates to a detail view for that item
-  - Detail view includes extra information about the item not included in the dashboard view
-  - The same sidebar is displayed in detail view as in dashboard view
-  - *To ensure an accurate grade, your sidebar **must** be viewable when showing the details view in your recording.*
-- [x] **Each detail view of an item has a direct, unique URL link to that item’s detail view page**
-  -  *To ensure an accurate grade, the URL/address bar of your web browser **must** be viewable in your recording.*
-- [x] **The app includes at least two unique charts developed using the fetched data that tell an interesting story**
-  - At least two charts should be incorporated into the dashboard view of the site
-  - Each chart should describe a different aspect of the dataset
+## 🛠️ Tech Stack
 
+- **Frontend**: React.js, JavaScript, HTML5, CSS3  
+- **Backend/Integration**: Spotify Web API  
+- **Data Visualization**: Recharts
 
-The following **optional** features are implemented:
+---
 
-- [ ] The site’s customized dashboard contains more content that explains what is interesting about the data 
-  - e.g., an additional description, graph annotation, suggestion for which filters to use, or an additional page that explains more about the data
-- [ ] The site allows users to toggle between different data visualizations
-  - User should be able to use some mechanism to toggle between displaying and hiding visualizations 
+## 📸 Demo
 
-  
-The following **additional** features are implemented:
+![Demo GIF](./public/demo.gif)  
+*A quick walkthrough of the app in action.*  
 
-* [ ] List anything else that you added to improve the site's functionality!
+---
 
-## Video Walkthrough
+## 📖 Project Background
 
-Here's a walkthrough of implemented user stories:
+This project was developed as part of my web development coursework, but I expanded it with a focus on usability and real-world development practices.  
 
-<img src='./public/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+### Challenges Solved
+- Implemented **OAuth PKCE authentication** to integrate securely with the Spotify API.  
+- Adapted to **API limitations and deprecations** (e.g., algorithmic playlists no longer accessible) by leveraging the Billboard Hot 100 as a reliable data source.  
 
-GIF created with [Kap](https://getkap.co/) for macOS
+---
+## 📈 Future Improvements
+- Add filters for genre, release date, and popularity range.
+- Allow users to toggle between different data visualizations.
+- Build user accounts with customizable playlists and saved favorites.
 
-## Notes
-
-The hardest part about developing this app was setting up authentication in order to use the Spotify API. The Spotify API requires OAuth in order for users to use the API. After spending time reading the API documentation and researching the best flow for my use case, I settled on a authentication with PKCE flow.
-
-Another challenge was that some of the API features that I originally wanted to use are now deprecated, so I had to work around those issues. One example is that the api no longer allows you to pull tracks from playlists that are "algorithmically generated", so I compromised by using the Billboard Hot 100 songs playlist, which is updated weekly.
+---
 
 ## License
 
